@@ -1,0 +1,131 @@
+---
+title: "tutorial R"
+output: html_document
+---
+
+```{r}
+
+# DATA TYPES
+
+# vectors
+apple <- c('red','green','yellow')
+print(apple)
+print(class(apple))
+
+# lists
+list1 <- list(c(2,3,2), 3.14, sin)
+print(list1)
+
+
+# Matrices
+M = matrix(c('a','b','b','a','b','b','c','d'), nrow=2, ncol=4, byrow=TRUE)
+print(M)
+
+
+# Arrays
+a <- array(c('green','yellow','black','orange'), dim=c(3,3,2))
+# The above line adds items in single column then move to next column and keep repeating
+print(a)
+
+
+# Factors
+apple_colors <- c('g','g','b','y','b','y')
+factor_apple <- factor(apple_colors)
+print(apple_colors)
+print(factor_apple) # sorts alphabetical too
+
+
+# Dataframes
+# unlike arrays it has different modes of data but with equal length
+BMI <- data.frame(
+  Gender = c("male","male","female"),
+  Height = c(158,165,155),
+  Weight = c(65,70,73),
+  Age = c(22,24,19)
+)
+print(BMI)
+```
+
+```{r}
+# VARIABLES
+
+c(TRUE,1) -> var.3
+
+print(var.3)
+cat ("var.3 is ", var.3 ,"\n")
+
+# A variable does not have it's own data type. 
+# The data type of the object is assigned to it
+
+# prints all the variables declared in the environment
+# variables starting with . are hidden by default use all.names=TRUE to view them
+print(ls(all.names=TRUE)) 
+
+rm(str_1)  # To delete a variable
+# to remove all the variables rm(list=ls())
+```
+
+```{r}
+# OPERATORS
+
+# Arthematic: + - * / %% 
+a <- 5
+b <- 7
+print(a%%b)
+print(a%/%b)
+print(2^3)
+
+# Logical: 
+# & Element Wise
+# | Element Wise
+# ! Element Wise
+# && takes first element of both vectors
+# || takes first element of both vectors
+
+
+# Assignment Operators = or <- or <<-    -> or ->>
+
+# Misc: 
+# %in% if element belongs to vector
+# %*%  to multiply matrix with it's transpose M1 = M %*% t(M)
+
+```
+
+```{r}
+# LOOPS
+
+
+v <- c("hello")
+v2 <- LETTERS[2:6]
+count <- 3
+
+repeat {
+  print(v)
+  count <- count + 1
+  
+  if(count > 3) {
+    break
+  }
+}
+
+while(count < 4) {
+  print(v)
+  count <- count + 1
+}
+
+for (i in v2) {
+  if (i == "D") {
+    next()
+  }
+  print(i)
+}
+
+```
+
+```{r}
+
+# Functions
+
+
+```
+
