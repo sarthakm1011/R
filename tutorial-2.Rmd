@@ -1,0 +1,46 @@
+---
+title: "reading_writing"
+author: "sarthak"
+date: "24 September 2018"
+output: html_document
+---
+
+```{r}
+
+# CSV Files
+print(getwd()) #print(setwd())
+
+data <- read.csv("/home/sarthak/Desktop/data/data_coding-blocks-course/class_02/movie_metadata.csv")
+print(data)
+
+```
+
+```{r}
+
+print(ncol(data))
+print(nrow(data))
+
+
+# retrieving the row with maximum duration of movie
+duration <- max(data$duration, na.rm=TRUE)
+print(duration)
+
+retval1 <- subset(data, duration == max(duration, na.rm=TRUE))
+print(retval1)
+
+retval2 <- subset(data, actor_2_name == "Christian Bale" & content_rating == "R")
+print(retval2)
+
+# Writing to a new file
+write.csv(retval2,"christian-bale-movies.csv")
+cb_movies <- read.csv("christian-bale-movies.csv")
+print(cb_movies)
+
+```
+
+```{r}
+
+# Input Excel Files
+```
+
+

@@ -124,8 +124,150 @@ for (i in v2) {
 
 ```{r}
 
-# Functions
+# FUNCTIONS
+FindRemainder <- function(a,b) {
+  print(a %% b)
+}
+
+FindRemainder(10,3)
 
 
+# STRINGS
+
+# To combine the strings 
+s1 <- "Dick"
+s2 <- "Head"
+print(paste(s1,s2, sep="*"))
+print(paste(s1,s2, sep="", colapse=""))
+
+
+result1 <- format(23.1234556, digits=3, scientific=FALSE, width=7)
+result2 <- format("Hello", width = 8, justify = "c")
+print(result1)
+print(result2)
+
+# to count the number in a string
+print(nchar("Hello"))
+print(toupper("Hello"))
+print(substring("Hello",1,4))
+
+```
+
+```{r}
+
+# VECTORS
+
+v <- 3.5:7.2
+print(v)
+
+print(seq(5,7, by=0.3))
+
+# accessing vectors
+# access vectors by 0,1 at positions and T or F at positions
+t <- c("Sun","Mon","Tue","Wed","Thurs","Fri","Sat")
+u <- t[c(2,3,6)]
+print(u)
+
+
+v1 <- c(3,8,4)
+v2 <- c(4,11,0,8,1,2)
+print(v1+v2)
+print(sort(v1+v2, decreasing=TRUE))
+```
+
+```{r}
+
+# LISTS
+
+list_data <- list(c("Jan","Feb","Mar"), matrix(c(3,9,5,1,-2,8), nrow = 2),
+   list("green",12.3))
+names(list_data) <- c("1st Quarter", "A_Matrix", "A Inner list")
+print(list_data)
+
+list_data[3] <- NULL
+print(list_data)
+
+# to merge list 
+# merged.list <- c(list1,list2)
+
+# convert list to vectors
+v4 <- unlist(list_data)
+print(v4)
+print(length(v4))
+```
+```{r}
+
+# ARRAYS
+# to store the data in more than 2 dimensions
+
+vector1 <- c(5,9,3)
+vector2 <- c(10,11,12,13,14,15)
+
+result <- array(c(vector1,vector2), dim=c(3,3,2))
+print(result)
+print(result[,,2]) # prints the second matrix
+
+# c(1) sum of the rows
+# c(2) sum of the columns
+# c(3) sum of the individual matrices
+new_result <- apply(result, c(3), sum)
+print(new_result)
+```
+
+```{r}
+# FACTORS
+# Categorize the data and store the data in levels
+
+data <- c("low","med","low","high","low","med")
+factor_data <- factor(data, levels=c("low","med","high"))
+print(factor_data)
+
+generated_factor_data <- gl(3,4, labels=c("Delhi","Haryana","Punjab"))
+print(generated_factor_data)
+
+```
+
+```{r}
+
+# DataFrames
+
+emp.data <- data.frame(
+  emp_id  = c(1:3),
+  emp_name = c("Rick","Morty","Ryan"),
+  salary = c(20000, 30000, 25000),
+  stringsAsFactors = FALSE
+)
+
+# Extract Specific Columns
+result1 <- data.frame(emp.data$emp_name, emp.data$salary)
+print(result1)
+
+result2 <- emp.data[c(1,3), c(2)]
+print(result2)
+
+# to add the rows or merge 2 datasets
+# result <- rbind(table1, table2)
+```
+
+```{r}
+# PACKAGES
+
+# .libPaths()
+# library()
+# search()
+# install.packages("Package Name")
+
+# to load a package in the library
+# library("package name", lib.loc = "path to library") 
+```
+```{r}
+
+# DATA RESHAPING
+
+# melt(dataframe_name, id=c("col1","col2"))
+# converts to [col1 - col2 - variable - value]
+
+# cast(dataframe_name, col1+col2~variable, sum)
+# which ever row has col1 and col2 and have an extra col then add them to the same row.
 ```
 
